@@ -17,21 +17,21 @@
 				} 
 			
 			function testCompleted (event){
-			  // Only allow messages from the correct speedtest custom url to prevent XSS attacks.
-			  // https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
-			  // REPLACE THE URL BELOW WITH YOUR SPECIFIC SPEEDTEST CUSTOM TEST URL
-			  console.log("######################### event.origin");
-			  console.log(event.origin );
-				
-			  if (event.origin !== 'https://nop.speedtestcustom.com' || event.origin !== 'http://nop.speedtestcustom.com') {
-			    return;
-			  }
+				  // Only allow messages from the correct speedtest custom url to prevent XSS attacks.
+				  // https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+				  // REPLACE THE URL BELOW WITH YOUR SPECIFIC SPEEDTEST CUSTOM TEST URL
+				  console.log("######################### event.origin");
+				  console.log(event.origin );
 
-			  // ADD YOUR CUSTOM CONSUMER LOGIC HERE
-			  // event.data contains your test results
-			  console.log("######################### ADD YOUR CUSTOM CONSUMER LOGIC HEREn");
-			  console.log(event.data); // log the results to the console to review
+				  if (event.origin !== 'https://nop.speedtestcustom.com' || event.origin !== 'http://nop.speedtestcustom.com') {
+				    return;
+				  }
 
+				  // ADD YOUR CUSTOM CONSUMER LOGIC HERE
+				  // event.data contains your test results
+				  console.log("######################### ADD YOUR CUSTOM CONSUMER LOGIC HEREn");
+				  console.log(event.data); // log the results to the console to review
+			}
 			
 		</script>
 	</head>
@@ -39,7 +39,7 @@
 	<body style="width: 100%; height: 100%;">
 		<!-- Replace the "src" property with your custom Test URL -->
 		<!--"your-company-name" is set up in your online configuration dashboard -->
-    <p>antes - 3 </p> 
+    <p>antes - 4 </p> 
 		<iframe width="100%" height="650px" frameborder="0" src="https://nop.speedtestcustom.com"></iframe>
 
     <p>depois</p>
