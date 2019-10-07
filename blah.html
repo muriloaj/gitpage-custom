@@ -1,47 +1,59 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!-- You should add the following <meta> viewport element to support responsive device scaling -->
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0 maximum-scale=1.0" />
-		<title>Speedtest Custom by Ookla</title>
-		<script>
-			
-			function attachToWindow (listener) {
-				  // Cross-browser event listener for Chrome, Firefox, etc
-				  if (window.addEventListener) {
-				    window.addEventListener("message", listener);
-				  } // IE backwards compatibility
-				  else if (window.attachEvent) {
-				    window.attachEvent("onmessage", listener);
-				  }
-				} 
-			
-			function testCompleted (event){
-				  // Only allow messages from the correct speedtest custom url to prevent XSS attacks.
-				  // https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
-				  // REPLACE THE URL BELOW WITH YOUR SPECIFIC SPEEDTEST CUSTOM TEST URL
-				  console.log("######################### event.origin");
-				  console.log(event.origin );
 
-				  if (event.origin !== 'https://nop.speedtestcustom.com' || event.origin !== 'http://nop.speedtestcustom.com') {
-				    return;
-				  }
-
-				  // ADD YOUR CUSTOM CONSUMER LOGIC HERE
-				  // event.data contains your test results
-				  console.log("######################### ADD YOUR CUSTOM CONSUMER LOGIC HEREn");
-				  console.log(event.data); // log the results to the console to review
+<head>
+	<!-- You should add the following <meta> viewport element to support responsive device scaling -->
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0 maximum-scale=1.0" />
+	<title>Speedtest Custom by Ookla</title>
+	<script type="text/javascript" src="https://raw.githubusercontent.com/madferro/Sniff.js/master/sniff.min.js">
+	</script>
+	<script>
+		function attachToWindow(listener) {
+			// Cross-browser event listener for Chrome, Firefox, etc
+			if (window.addEventListener) {
+				window.addEventListener("message", listener);
+			} // IE backwards compatibility
+			else if (window.attachEvent) {
+				window.attachEvent("onmessage", listener);
 			}
-			
-		</script>
-	</head>
-	<!-- Any wrapping containers around the iframe need to have width and height set to `100%` for a responsive iframe experience -->
-	<body style="width: 100%; height: 100%;">
-		<!-- Replace the "src" property with your custom Test URL -->
-		<!--"your-company-name" is set up in your online configuration dashboard -->
-    <p>antes - 4 </p> 
-		<iframe width="100%" height="650px" frameborder="0" src="https://nop.speedtestcustom.com"></iframe>
+		}
 
-    <p>depois</p>
-	</body>
+		function testCompleted(event) {
+			// Only allow messages from the correct speedtest custom url to prevent XSS attacks.
+			// https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+			// REPLACE THE URL BELOW WITH YOUR SPECIFIC SPEEDTEST CUSTOM TEST URL
+			console.log("######################### event.origin");
+			console.log(event.origin);
+
+			if (event.origin !== 'https://nop.speedtestcustom.com' || event.origin !== 'http://nop.speedtestcustom.com') {
+				return;
+			}
+
+			// ADD YOUR CUSTOM CONSUMER LOGIC HERE
+			// event.data contains your test results
+			console.log("######################### ADD YOUR CUSTOM CONSUMER LOGIC HEREn");
+			console.log(event.data); // log the results to the console to review
+		}
+
+		attachToWindow(testCompleted);
+
+
+		function blaaaaaaaaa() {
+			console.log("#########################Browser: " + sniff.browserType + " - " + sniff.browserVersionExtended + " " + sniff.mobile);
+
+		}
+	</script>
+</head>
+<!-- Any wrapping containers around the iframe need to have width and height set to `100%` for a responsive iframe experience -->
+
+<body style="width: 100%; height: 100%;">
+	<!-- Replace the "src" property with your custom Test URL -->
+	<!--"your-company-name" is set up in your online configuration dashboard -->
+	<p>antes - 4 </p>
+	<iframe width="100%" height="650px" frameborder="0" src="https://nop.speedtestcustom.com"></iframe>
+
+	<p>depois</p>
+
+</body>
+
 </html>
