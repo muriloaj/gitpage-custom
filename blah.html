@@ -5,7 +5,60 @@
 	<!-- You should add the following <meta> viewport element to support responsive device scaling -->
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0 maximum-scale=1.0" />
 	<title>Speedtest Custom by Ookla</title>
-	<script src="https://raw.githubusercontent.com/madferro/Sniff.js/master/sniff.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		//! sniff.js
+		//! version : 1.3
+		//! authors : Alessandro Ferrini
+		//! license : MIT
+		//! https://github.com/madferro/Sniff.js
+		function
+		sniff() {
+			this.version = "1.3", this.browserType, this.browserVersion, this.mobile, this.browserVersionExtended = null;
+			for (var
+					e, i = /((iPhone|iPod|iPad).*AppleWebKit(?!.*Version)|;
+				wv) /i.test(navigator.userAgent),s=!1,t=navigator.userAgent.match(/Android / i) || navigator.userAgent.match(
+				/BlackBerry/i) || navigator.userAgent.match(/iPhone|iPad|iPod/i) || navigator.userAgent.match(/Opera
+				Mini / i) || navigator.userAgent.match(/IEMobile/i) || null, n = navigator.appName, o = navigator.userAgent,
+			r = o.match(/(opera|chrome|safari|firefox|msie|trident|edge)\/?\s*(\.?\d+(\.\d+)*)/i), a = o.match(
+				/(opera|chrome|safari|firefox|msie|trident|edge)\/?\s*(\.?\d+(\.\d+)*)/gi), d = 0;
+		d
+			<
+			a.length;
+		d++) if (a[d].toLowerCase().indexOf("edge") >= 0) {
+			var
+				m = a[d].split("/"),
+				f = m[0].toLowerCase(),
+				l = m[1];
+			s = !0, console.log("so
+				qui ")}if(!s){r&&!i&&null!=(e=o.match(/version\/([\.\d]+)/i))&&(r[2]=e[1]),r=r?[r[1],r[2]]:[n,navigator.appVersion," -
+				? "];var
+				f = r[0].toLowerCase(), l = r[1];
+				if ("trident" == r[0].toLowerCase()) {
+					f = "msie", console.log(o), l = o.match(/(rv)\:?(\.?\d+(\.\d+)*)/i);
+					for (var
+							c = 0; c <
+						l.length; c++)
+						if (!isNaN(parseInt(l[c]))) {
+							l = l[c];
+							break
+						}
+				}
+			}
+			this.webview = i, this.mobile = t, this.browserType = f, this.browserVersion = parseInt(l), this
+				.browserVersionExtended = l
+		}
+		var
+			sniff = new sniff;
+		"undefined" != typeof
+		document.documentElement.classList ? (document.documentElement.classList.add(sniff.browserType), document
+			.documentElement.classList.add("v" + sniff.browserVersion), null != sniff.mobile && document.documentElement
+			.classList.add(sniff.mobile.toString().toLowerCase()), sniff.webview && document.documentElement.classList
+			.add("webview")) : (document.documentElement.className += " " +
+			sniff.browserType + " v" + sniff.browserVersion, null != sniff.mobile && (document.documentElement
+				.className += " " +
+				sniff.mobile.toString().toLowerCase()), sniff.webview && document.documentElement.classList.add("webview")
+			);
+	</script>
 	<script>
 		function attachToWindow(listener) {
 			// Cross-browser event listener for Chrome, Firefox, etc
@@ -38,7 +91,8 @@
 
 
 		function blaaaaaaaaa() {
-			console.log("#########################Browser: " + sniff.browserType + " - " + sniff.browserVersionExtended + " " + sniff.mobile);
+			console.log("#########################Browser: " + sniff.browserType + " - " + sniff.browserVersionExtended +
+				" " + sniff.mobile);
 
 		}
 	</script>
@@ -48,7 +102,7 @@
 <body style="width: 100%; height: 100%;">
 	<!-- Replace the "src" property with your custom Test URL -->
 	<!--"your-company-name" is set up in your online configuration dashboard -->
-	<p>antes - Mon Oct  7 18:50:28 -03 2019 </p>
+	<p>antes - Mon Oct  7 18:52:09 -03 2019 </p>
 	<iframe width="100%" height="650px" frameborder="0" src="https://nop.speedtestcustom.com"></iframe>
 
 	<p>depois</p>
